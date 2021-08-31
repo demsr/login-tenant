@@ -1,0 +1,29 @@
+{
+  "name": "login-tenant",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@tailwindcss/forms": "^0.3.3",
+    "autoprefixer": "^10.3.3",
+    "bcrypt": "^5.0.1",
+    "chalk": "^4.1.2",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "ioredis": "^4.27.9",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "mongoose": "^6.0.3",
+    "nanoid": "^3.1.25",
+    "postcss": "^8.3.6",
+    "postcss-cli": "^8.3.1",
+    "tailwindcss": "^2.2.9"
+  },
+  "scripts": {
+    "tailwind:css": "postcss public/styles/tailwind.css -o public/styles/style.css"
+  }
+}
