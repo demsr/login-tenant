@@ -4,6 +4,19 @@
     <%- include('../partials/head'); %>
   </head>
   <body>
+    <% if(data?.message){ %>
+    <div
+      style="
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50px;
+        text-align: center;
+      "
+    >
+      <%= data.message %>
+    </div>
+    <% } %>
     <div
       class="
         min-h-screen
@@ -22,13 +35,18 @@
           alt="Workflow"
         />
         <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          Login
+          <%=data.appname%>
         </h2>
       </div>
-
       <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-          <form class="space-y-6" action="login" method="POST">
+          <form class="space-y-6" method="POST" action="login">
+            <input name="appid" style="display: none" value="<%=data.appid%>" />
+            <input
+              name="redirect"
+              style="display: none"
+              value="<%=data.redirect%>"
+            />
             <div>
               <label
                 for="email"
@@ -39,8 +57,7 @@
               <div class="mt-1">
                 <input
                   id="email"
-                  name="email"
-                  type="email"
+                  name="username"
                   autocomplete="email"
                   required
                   class="
@@ -61,7 +78,6 @@
                 />
               </div>
             </div>
-
             <div>
               <label
                 for="password"
@@ -94,7 +110,6 @@
                 />
               </div>
             </div>
-
             <div class="flex items-center justify-between">
               <div class="flex items-center">
                 <input
@@ -117,17 +132,14 @@
                   Remember me
                 </label>
               </div>
-
               <div class="text-sm">
                 <a
-                  href="#"
+                  href="/register?appid=<%=data.appid%>&redirect=<%=data.redirect%>"
                   class="font-medium text-indigo-600 hover:text-indigo-500"
+                  >New here? Register now!</a
                 >
-                  Forgot your password?
-                </a>
               </div>
             </div>
-
             <div>
               <button
                 type="submit"
@@ -143,8 +155,8 @@
                   text-sm
                   font-medium
                   text-white
-                  bg-green-600
-                  hover:bg-green-700
+                  bg-indigo-600
+                  hover:bg-indigo-700
                   focus:outline-none
                   focus:ring-2
                   focus:ring-offset-2
@@ -155,24 +167,6 @@
               </button>
             </div>
           </form>
-
-          <div class="mt-6">
-            <div class="relative">
-              <div class="absolute inset-0 flex items-center">
-                <div class="w-full border-t border-gray-300"></div>
-              </div>
-              <div class="relative flex justify-center text-sm">
-                <span class="px-2 bg-white text-gray-500">
-                  New here?
-                  <a
-                    href="/register"
-                    class="text-indigo-600 hover:text-indigo-500"
-                    >Register now!</a
-                  >
-                </span>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
